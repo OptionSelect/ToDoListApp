@@ -18,20 +18,20 @@
     <section>
         <h3>Incomplete</h3>
         <ul>
+            
             @foreach(var item in Model)
             {
                 @if(item.Complete == false)
                 {
-                    <form asp-controller = "Home" asp-action="Complete" method="post">
                     <li>
-                        @item.TaskName
-                        <button type="submit">Complete</button>
+                        <form asp-controller = "Home" asp-action="Complete" method="post">
+                            @item.TaskName
+                            <input type ="hidden" name="id" value = "@item.ID">
+                            <button type="submit">Complete</button>
+                        </form>
                     </li>
-                    </form>
-                }
-                    
+                }     
             }
-
         </ul>
     </section>
 
@@ -45,8 +45,7 @@
                     <li>
                         @item.TaskName completed at @item.Time
                     </li>
-                }
-               
+                }     
             }
         </ul>
     </section>

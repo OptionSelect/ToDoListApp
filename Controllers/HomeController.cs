@@ -37,9 +37,9 @@ namespace ToDoListApp.Controllers
         }
 
         [HttpPost]
-         public IActionResult Complete(int todo)
+         public IActionResult Complete(int id)
         {
-            var current = _context.ToDos.ToList()[todo];
+            var current = _context.ToDos.SingleOrDefault(m => m.ID == id);
 
             current.CompleteTask();
             _context.SaveChanges();
