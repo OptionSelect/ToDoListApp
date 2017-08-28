@@ -1,11 +1,16 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using ToDoListApp.Models;
 
-namespace ToDoListApp
+namespace ToDoListApp.Models
 {
     public partial class todolistContext : DbContext
     {
+        public DbSet<TodoModel> ToDos { get; set; }
+
+
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
