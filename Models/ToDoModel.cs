@@ -8,5 +8,11 @@ namespace ToDoListApp.Models
         public string TaskName { get; set; }
         public bool Complete { get; set; } = false; 
         public DateTime Time {get; set;} = DateTime.Now;
+
+        public void CompleteTask()
+        {
+            Complete = true;
+            Time = DateTime.Now;
+        }
     }
 }

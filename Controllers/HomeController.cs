@@ -26,7 +26,7 @@ namespace ToDoListApp.Controllers
             
             _context.ToDos.Add(currentToDo);
             _context.SaveChanges();
-            
+
             return View(_context.ToDos.ToList());
         }
 
@@ -34,6 +34,17 @@ namespace ToDoListApp.Controllers
         public IActionResult Index()
         {
             return View(_context.ToDos.ToList());
+        }
+
+        [HttpPost]
+         public IActionResult Complete(int todo)
+        {
+            var current = _context.ToDos.ToList()[todo];
+
+            current.CompleteTask();
+            _context.SaveChanges();
+
+            return Redirect("Index");
         }
 
         public IActionResult About()

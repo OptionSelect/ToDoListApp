@@ -22,12 +22,16 @@
             {
                 @if(item.Complete == false)
                 {
+                    <form asp-controller = "Home" asp-action="Complete" method="post">
                     <li>
                         @item.TaskName
+                        <button type="submit">Complete</button>
                     </li>
+                    </form>
                 }
-               
+                    
             }
+
         </ul>
     </section>
 
@@ -39,7 +43,7 @@
                 @if(item.Complete == true)
                 {
                     <li>
-                        @item.TaskName
+                        @item.TaskName completed at @item.Time
                     </li>
                 }
                
