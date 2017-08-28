@@ -17,6 +17,13 @@ namespace ToDoListApp.Controllers
             _context = context;
         }
 
+        [HttpPost]
+        public IActionResult Index(string newToDo)
+        {
+            return View();
+        }
+
+
         public IActionResult Index()
         {
             return View();
