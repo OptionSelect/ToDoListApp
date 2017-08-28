@@ -7,7 +7,7 @@ namespace ToDoListApp.Models
 {
     public partial class todolistContext : DbContext
     {
-        public DbSet<TodoModel> ToDos { get; set; }
+        public DbSet<ToDoModel> ToDos { get; set; }
 
 
 

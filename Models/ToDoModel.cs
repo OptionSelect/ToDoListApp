@@ -2,7 +2,7 @@ using System;
 
 namespace ToDoListApp.Models
 {
-    public class TodoModel
+    public class ToDoModel
     {
         public int ID { get; set; }
         public string TaskName { get; set; }

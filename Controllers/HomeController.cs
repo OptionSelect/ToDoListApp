@@ -18,15 +18,22 @@ namespace ToDoListApp.Controllers
         }
 
         [HttpPost]
-        public IActionResult Index(string newToDo)
+        public IActionResult Index(string newToDoName)
         {
-            return View();
+            var currentToDo = new ToDoModel{
+                TaskName = newToDoName
+            };
+            
+            _context.ToDos.Add(currentToDo);
+            _context.SaveChanges();
+            
+            return View(_context.ToDos.ToList());
         }
 
 
         public IActionResult Index()
         {
-            return View();
+            return View(_context.ToDos.ToList());
         }
 
         public IActionResult About()
